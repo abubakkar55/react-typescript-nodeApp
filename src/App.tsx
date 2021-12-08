@@ -1,24 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { Container, Row } from 'react-bootstrap';
+import Header from './components/Header';
+import NotesList from './components/NotesList';
+import { Note } from './models/note.model';
 
 function App() {
+  const [notes, setNotes] = useState<Note[]>([
+    {
+      id: new Date().toLocaleString(),
+      title: "How to Become Frontend developer",
+      text: "start with html, then css, then make a project with those things. after learn js to dynamic you site",
+      color: "#000",
+      date: new Date().toLocaleString()
+    }
+  ]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Container>
+        <Row>
+          <NotesList notes={notes} setNotes={setNotes} />
+        </Row>
+      </Container>
     </div>
   );
 }
