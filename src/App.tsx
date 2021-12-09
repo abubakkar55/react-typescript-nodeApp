@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Container, Row } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
+import CreateNotes from './components/CreateNotes';
 import Header from './components/Header';
 import NotesList from './components/NotesList';
 import { Note } from './models/note.model';
@@ -10,7 +11,7 @@ function App() {
       id: new Date().toLocaleString(),
       title: "How to Become Frontend developer",
       text: "start with html, then css, then make a project with those things. after learn js to dynamic you site",
-      color: "#000",
+      color: "#dfdfdf",
       date: new Date().toLocaleString()
     }
   ]);
@@ -19,8 +20,16 @@ function App() {
       <Header />
       <Container>
         <Row>
-          <NotesList notes={notes} setNotes={setNotes} />
+          <Col>
+            <NotesList notes={notes} setNotes={setNotes} />
+          </Col>
         </Row>
+        <Row>
+          <Col className="mt-3">
+            <CreateNotes notes={notes} setNotes={setNotes} />
+          </Col>
+        </Row>
+
       </Container>
     </div>
   );

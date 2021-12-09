@@ -13,7 +13,7 @@ const NoteList: React.FC<INoteListProps> = ({ notes, setNotes }) => {
         setNotes(notes.filter(note => note.id !== id));
     }
 
-    const renderNotes = () => {
+    const renderNotes = (): JSX.Element[] => {
         return notes.map(note => <Notes key={note.id} note={note} handleDelete={handleDelete} />)
     }
 

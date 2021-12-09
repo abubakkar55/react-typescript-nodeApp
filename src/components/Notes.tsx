@@ -11,7 +11,7 @@ const Notes: React.FunctionComponent<INotesProps> = ({ note, handleDelete }) => 
     const { title, date, color, text, id } = note;
     return (
         <div className="mt-5">
-            <Card>
+            <Card style={{ backgroundColor: color }}>
                 <Card.Body>
                     <Card.Title>
                         {title}
